@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+<style>
+    body{
+        background-color: gray;
+    }
+    .main{
+        width: 100vw;
+        /* margin: auto; */
+        height: 100vh;
+       
+         
+    }
+    .entry{
+        width: 100%;
+       
+        display: flex;
+        justify-content: center;
+        padding: 5vw;
+         
+        
+        gap:0;
+    }
+    .entry1{
+       width: 100%;
+       
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        justify-content: center;
+        padding: 5vw;
+         
+        
+        gap:0; 
+    } 
+    #enter{
+        width: 50%;
+        height: 40px;
+    }
+    #add{
+        padding: 3px 20px;
+    }
+    .todos{
+        
+        display: flex;
+        width: 50%;
+        
+    }
+    .todo{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 740px;
+        background-color: white;
+        padding: 2px 10px;
+        font-size: 18px;
+    }
+    #com{
+        border: none;
+        background-color: white;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 2px;
+        
+    }
+    #del{
+        background-color: red;
+        font-size: 18px;
+        padding: 4px;
+    }
+</style>
+<body>
+
+    <div class="main ">
+       <div class="entry1">
+        <div class="entry">
+             <input type="text" name="" id="enter" >
+         <button id="add">Add</button>
+        </div>
+      
+       <div class="todos">
+
+        <div class="todo">
+            <p>I have to leanr react </p>
+            <div>
+                <button id="com" class="btn">Complete</button>
+                <button id="del" class="btn">Delete</button>
+            </div>
+        </div>
+       </div>
+        </div>
+    </div>
+
+    <script>
+        const add= document.querySelector('#add');
+        add.addEventListener('click',()=>{
+            let input= document.querySelector('#enter');
+            
+        })
+    </script>
+</body>
+</html>

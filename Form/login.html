@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <div class="loginpage">
+        <div class="main">
+            <label for="name" class="display">Enter your name:- </label>
+            <input required type="text" id="name" class="display">
+            <label for="email">Enter your email:- </label>
+            <input required type="email" id="email">
+            <label for="password">password</label>
+            <input type="password">
+            <label for="" class="display"> confirm password</label>
+            <input type="password" class="display">
+            <label for="avatar" class="display">upload your avatar:- </label>
+            <input required type="file" id="avatar" class="display">
+            <div class="btn">
+                <button class="display">signUp</button>
+                <button style="display: none;" class="login">Login</button>
+
+            </div>
+            <p>Are you a new user user? <a href="#" id="btn">Login</a></p>
+        </div>
+    </div>
+
+
+
+    <script>
+        let btn = document.querySelector('#btn');
+        let display = document.querySelectorAll('.display');
+        let login=document.querySelector(".login");
+
+        btn.addEventListener('click', () => {
+            display.forEach(element => {
+                element.style.display = "none";
+            });
+            login.style.display="block";
+
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachin Kumar Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f6f8fa;
+        }
+        .container {
+            max-width: 1200px;
+            min-height: 100vh;
+            margin: 0 auto;
+            background: #fff;
+            padding: 48px 64px;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 {
+            color: #2d7a46;
+            font-size: 3rem;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 32px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            color: #1a5c37;
+            margin-bottom: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .skills-list li {
+            background: #e6f4ea;
+            display: inline-block;
+            margin: 6px 12px 6px 0;
+            padding: 10px 22px;
+            border-radius: 6px;
+            color: #2d7a46;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 1px 4px rgba(45,122,70,0.07);
+        }
+        a {
+            color: #2d7a46;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .not-filled {
+            color: #888;
+            font-style: italic;
+        }
+        .project-title {
+            margin-bottom: 6px;
+            color: #1a5c37;
+            font-size: 1.2rem;
+        }
+        .email, .contact-info {
+            color: #333;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        .project-details {
+            margin-bottom: 28px;
+        }
+        .about {
+            font-size: 1.15rem;
+            color: #444;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #aaa;
+            font-size: 1rem;
+        }
+        @media (max-width: 900px) {
+            .container {
+                padding: 24px 10px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sachin Kumar</h1>
+        <div class="subtitle">MERN Stack Developer</div>
+        <div class="about">
+            Passionate web developer with hands-on experience building scalable and responsive web applications using the MERN stack. 
+            I enjoy solving real-world problems with code and creating seamless user experiences. My expertise includes both frontend and backend development, 
+            and I am always eager to learn new technologies and improve my skills.
+        </div>
+        <div class="section">
+            <span class="section-title">Contact Information</span>
+            <div class="contact-info">
+                <strong>Email:</strong> <span class="email">sachinlavano@gmail.com</span><br>
+                <strong>GitHub:</strong> <a href="https://github.com/" target="_blank">github.com/sachinkumar</a><br>
+                <strong>LinkedIn:</strong> <span class="not-filled">Not filled yet</span>
+            </div>
+        </div>
+        <div class="section">
+            <span class="section-title">Skills</span>
+            <ul class="skills-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>React</li>
+                <li>JavaScript</li>
+                <li>Express</li>
+                <li>Mongoose</li>
+                <li>Tailwind</li>
+                <li>Node.js</li>
+                <li>MongoDB</li>
+                <li>REST APIs</li>
+                <li>Responsive Design</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </div>
+        <div class="section">
+            <span class="section-title">Projects</span>
+            <div class="project-details">
+                <h3 class="project-title">Green Stack (Grocery App)</h3>
+                <p>
+                    This is a grocery app built using the MERN stack (MongoDB, Express, React, Node.js). 
+                    The app allows users to browse products, add items to their cart, and place orders online. 
+                    I used Tailwind CSS for fast and responsive UI development. The backend is secured and scalable, 
+                    and the app features user authentication, product management, and real-time updates for inventory.<br>
+                    <br>
+                    <strong>Features:</strong>
+                    <ul>
+                        <li>Product browsing and search functionality</li>
+                        <li>Shopping cart and order placement</li>
+                        <li>User authentication and profile management</li>
+                        <li>Admin dashboard for inventory control</li>
+                        <li>Responsive design for all devices</li>
+                        <li>Real-time updates for stock and orders</li>
+                    </ul>
+                    <strong>Tech Used:</strong> React, Node.js, Express, MongoDB, Tailwind CSS, JWT
+                </p>
+            </div>
+            <div class="project-details">
+                <h3 class="project-title">Music Player</h3>
+                <p>
+                    A modern music player web application where users can play live music, create playlists, and upload their own tracks. 
+                    Built with React for the frontend and Node.js/Express for the backend, it supports streaming, song uploads, and real-time playback. 
+                    The UI is designed with Tailwind CSS for a clean and interactive experience.<br>
+                    <br>
+                    <strong>Features:</strong>
+                    <ul>
+                        <li>Live music streaming and playback</li>
+                        <li>Playlist creation and management</li>
+                        <li>Upload and share your own tracks</li>
+                        <li>Real-time updates and notifications</li>
+                        <li>Responsive and modern UI</li>
+                    </ul>
+                    <strong>Tech Used:</strong> React, Node.js, Express, MongoDB, Tailwind CSS, Web Audio API
+                </p>
+            </div>
+            <div class="project-details">
+                <h3 class="project-title">Portfolio Website</h3>
+                <p>
+                    A personal portfolio website to showcase my skills, projects, and contact information. Built with React and Tailwind CSS, 
+                    it highlights my journey as a developer and provides easy access to my work and social profiles.
+                </p>
+            </div>
+        </div>
+        <div class="section">
+            <span class="section-title">Education</span>
+            <p>
+                <strong>Bachelor of Technology (B.Tech)</strong> - Computer Science<br>
+                XYZ University, 2021 - 2025
+            </p>
+        </div>
+        <div class="section">
+            <span class="section-title">Languages</span>
+            <ul class="skills-list">
+                <li>English</li>
+                <li>Hindi</li>
+            </ul>
+        </div>
+        <div class="footer">
+            &copy; 2025 Sachin Kumar. All rights reserved.
+        </div>
+    </div>
