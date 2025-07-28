@@ -4,105 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        .main{
+            width: 100vw;
+            height: 100vh;
+        }
+        .entry{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 5vw;
+            gap:0;
+        }
+        .entry1{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5vw;
+            gap:0; 
+        } 
+        #enter{
+            width: 50%;
+            height: 40px;
+        }
+        #add{
+            padding: 3px 20px;
+        }
+        .todos{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            gap: 10px;
+        }
+        .todo{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 740px;
+            background-color: white;
+            padding: 2px 10px;
+            font-size: 18px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+        #com{
+            border: none;
+            background-color: white;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 2px;
+        }
+        #del{
+            background-color: red;
+            color: white;
+            font-size: 18px;
+            padding: 4px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<style>
-    body{
-        background-color: gray;
-    }
-    .main{
-        width: 100vw;
-        /* margin: auto; */
-        height: 100vh;
-       
-         
-    }
-    .entry{
-        width: 100%;
-       
-        display: flex;
-        justify-content: center;
-        padding: 5vw;
-         
-        
-        gap:0;
-    }
-    .entry1{
-       width: 100%;
-       
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        justify-content: center;
-        padding: 5vw;
-         
-        
-        gap:0; 
-    } 
-    #enter{
-        width: 50%;
-        height: 40px;
-    }
-    #add{
-        padding: 3px 20px;
-    }
-    .todos{
-        
-        display: flex;
-        width: 50%;
-        
-    }
-    .todo{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 740px;
-        background-color: white;
-        padding: 2px 10px;
-        font-size: 18px;
-    }
-    #com{
-        border: none;
-        background-color: white;
-        cursor: pointer;
-        font-size: 18px;
-        padding: 2px;
-        
-    }
-    #del{
-        background-color: red;
-        font-size: 18px;
-        padding: 4px;
-    }
-</style>
 <body>
-
     <div class="main ">
-       <div class="entry1">
-        <div class="entry">
-             <input type="text" name="" id="enter" >
-         <button id="add">Add</button>
-        </div>
-      
-       <div class="todos">
-
-        <div class="todo">
-            <p>I have to leanr react </p>
-            <div>
-                <button id="com" class="btn">Complete</button>
-                <button id="del" class="btn">Delete</button>
+        <div class="entry1">
+            <div class="entry">
+                <input type="text" id="enter" placeholder="Add your todo...">
+                <button id="add">Add</button>
             </div>
-        </div>
-       </div>
+            <div class="todos" id="todos">
+                <!-- Todos will appear here -->
+            </div>
         </div>
     </div>
 
     <script>
-        const add= document.querySelector('#add');
-        add.addEventListener('click',()=>{
-            let input= document.querySelector('#enter');
-            
-        })
+        const addBtn = document.querySelector('#add');
+        const input = document.querySelector('#enter');
+        const todosDiv = document.querySelector('#todos');
+
+        function createTodo(text) {
+            const todoDiv = document.createElement('div');
+            todoDiv.className = 'todo';
+
+            const p = document.createElement('p');
+            p.textContent = text;
+
+            const btnDiv = document.createElement('div');
+
+            const comBtn = document.createElement('button');
+            comBtn.textContent = 'Complete';
+            comBtn.className = 'btn';
+            comBtn.id = 'com';
+            comBtn.onclick = () => {
+                p.classList.toggle('completed');
+            };
+
+            const delBtn = document.createElement('button');
+            delBtn.textContent = 'Delete';
+            delBtn.className = 'btn';
+            delBtn.id = 'del';
+            delBtn.onclick = () => {
+                todoDiv.remove();
+            };
+
+            btnDiv.appendChild(comBtn);
+            btnDiv.appendChild(delBtn);
+
+            todoDiv.appendChild(p);
+            todoDiv.appendChild(btnDiv);
+
+            todosDiv.appendChild(todoDiv);
+        }
+
+        addBtn.addEventListener('click', () => {
+            const value = input.value.trim();
+            if (value) {
+                createTodo(value);
+                input.value = '';
+            }
+        });
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                addBtn.click();
+            }
+        });
+
+        // Example initial todo
+        createTodo('I have to learn React');
     </script>
 </body>
-</html>

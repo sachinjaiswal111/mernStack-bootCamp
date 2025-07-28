@@ -1,0 +1,507 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, white, #f7f7f7);
+    background-size: 35% 35%;
+}
+
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 20px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    margin-right: 6%;
+     
+
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    color: #000;
+    margin-left: 5px;
+    padding-top: 10px;
+
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: bold;
+    width: right 20px;
+}
+
+.trial{
+    border: 2px solid #722ED1;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: #722ED1;
+    background-color: transparent;
+}
+
+.hero{
+    padding: 6.5rem 30px;
+    margin-left: 5rem;
+    display: flex;
+    display: inline-block;
+    flex-direction: column;
+    
+}
+.b1 {
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    display:inline-block;
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+
+h1{
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: #000;
+    height: 130px;
+}
+p{
+    font-size: 15px;
+    color: #000;
+    padding: 10px 5px;
+    height: 50px;
+}
+.buttons{
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 15px 0px;
+    
+}
+
+.btn1 {
+    background-color: #722ED1;
+    padding: 10px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+.btn2{
+    background-color: transparent;
+    padding: 10px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.pic{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    transform: translate(-50%, -50%); 
+    position: absolute;
+    left: 73%;
+    top: 60%;
+}
+
+.contents{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.see{
+    color: #722ED1;
+    font-weight: bold;
+    background-color: #eae7ee;
+    border-radius:20px;
+    padding: 10px 30px;
+}
+.see img{
+   justify-content: space-between;
+}
+
+.contents h1{
+    font-size: 32px;
+    padding: 30px 0px;
+}
+
+.contents p{
+    color: rgb(104, 105, 105);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 0px ;
+    padding: -30px 0px;
+}
+
+.sec0{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 200px;
+}
+
+.analytics{
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.analytics p{
+    color: rgb(136, 150, 150);
+    font-weight: bold;
+    text-align: center;
+}
+.newslater{
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.newslater p{
+    color: rgb(136, 150, 150);
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.timeline{
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.timeline p{
+    color: rgb(136, 150, 150);
+    font-weight: bold;
+    text-align: center;
+}
+
+
+rightRotate animation {
+    transform: rotate(-289.934deg);
+}
+
+.sec2{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    line-height: 24px;
+    margin-top: 130px;
+    position: relative;
+}
+.sec2box1 {
+    height: 500px;
+    width: 500px;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: rightRotate;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    position: relative;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(238, 223, 249);
+    border-image: initial;
+}
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+#img5 {
+    position: absolute;
+    top: -40px;
+    left: 180px;
+    border-radius: 50%;
+}
+
+#img6 {
+    position: absolute;
+    left: -40px;
+    top: 230px;
+    background-color: white;
+    box-shadow: rgba(137, 137, 162, 0.12) 4px 4px 12px;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+#img7 {
+    position: absolute;
+    top: 230px;
+    left: 450px;
+    background-color: white;
+    box-shadow: rgba(137, 137, 162, 0.12) 4px 4px 12px;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.sec2box5 {
+    position: absolute;
+    left: 160px;
+    height: 360px;
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: leftRotate;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(238, 223, 249);
+    border-image: initial;
+}
+
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+
+#img1 {
+    position: absolute;
+    left: 290px;
+    top: 30px;
+    background-color: white;
+    box-shadow: rgba(137, 137, 162, 0.12) 4px 4px 12px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+#img2 {
+    position: absolute;
+    left: 290px;
+    top: 250px;
+    background-color: white;
+    box-shadow: rgba(137, 137, 162, 0.12) 4px 4px 12px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+#img3 {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    height: 70px;
+    width: 70px;
+    background-color: white;
+    box-shadow: rgba(137, 137, 162, 0.12) 4px 4px 12px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+#img4 {
+    position: absolute;
+    top: 250px;
+    left: 0px;
+    background-color: white;
+    box-shadow: rgba(137, 137, 162, 0.12) 4px 4px 12px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.sec2box4 {
+    position: absolute;
+    left: 220px;
+    bottom: 120px;
+    height: 240px;
+    width: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: leftRotate;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(238, 223, 249);
+    border-image: initial;
+}
+
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+
+
+@keyframes rightRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes leftRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+
+.sec8{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+#circuit{
+    border-radius: 20px;
+    background-color: rgb(200, 200, 207);
+    padding: 5px 30px;
+    color: #722ED1;
+    margin: 30px;
+}
+
+#circuit img{
+    margin-right: 15px ;
+}
+
+
+.sec8 h4{
+    font-size: 30px;
+}
+
+
+.sec8 p{
+    color: #9da1a1;
+    font-weight: bold;
+}
+
+
+.sec3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+
+}
+
+.sec3box1{
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.heading{
+    color: blue;
+    padding: 30px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f2eff8;
+    padding: 10px 5px 5px 10px;
+    display: inline;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.sec3box1 h4{
+    padding: 20px;
+    font-size: 30px;
+}
+
+.sec3box1 p{
+    color: #9da1a1;
+    font-weight: bold;
+}
+
+.sec4{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.sec4 h3{
+    font-size: 23px;
+    /* padding: 40px; */
+}
+
+.sec4 img{
+    padding: 35px;
+}
+
+.sec5{
+    display: flex;
+    padding: 220px;
+    justify-content: space-around;
+   
+    
+}
+
+.sec5box1 h3{
+    font-size: 33px;
+    text-align: center;
+}
+
+
+.sec5box2{
+    background-color: #ffff;
+}
+
+.sec5box2 h4{
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.sec5box2 h5{
+    background-color: #722ED1;
+    color: #fff;
+    padding: 10px ;
+}
+
+.sec6{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    background-color: #f6f7f7;
+    padding: 40px 100px;
+
+}
+
+.sec6box2 h4{
+    padding: 20px;
+}
+
+.sec6box2 p{
+    height: 30px;
+    text-align: center;
+    align-items: start;
+}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f9d423 0%, #ff4e50 100%);
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main {
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            background: #fff;
+            height: 520px;
+            width: 270px;
+            padding: 18px 16px 24px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .input {
+            width: 100%;
+            height: 60px;
+            background: #f7f7f7;
+            border-radius: 8px;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 2rem;
+            padding-right: 16px;
+            box-sizing: border-box;
+            margin-bottom: 12px;
+            overflow-x: auto;
+            color: #333;
+            letter-spacing: 1px;
+            border: 1px solid #eee;
+        }
+        .number {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .box, .opr, .func {
+            height: 54px;
+            font-size: 1.2rem;
+            background: #ffe0b2;
+            color: #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s, transform 0.2s;
+            border: none;
+            outline: none;
+        }
+        .box:hover, .opr:hover, .func:hover {
+            background: #ffb347;
+            transform: scale(1.07);
+        }
+        .opr {
+            background: #ffd700;
+            color: #2d7a46;
+            font-weight: bold;
+        }
+        .func {
+            background: #e6f4ea;
+            color: #2d7a46;
+            font-weight: bold;
+        }
+        .active {
+            box-shadow: 0 2px 8px #ffb347;
+        }
+        .history {
+            background: #f7f7f7;
+            border-radius: 8px;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #888;
+            max-height: 60px;
+            overflow-y: auto;
+        }
+        .title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff4e50;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="title">Stylish Calculator</div>
+        <div class="history" id="history"></div>
+        <div class="input" id="display">0</div>
+        <div class="number">
+            <button class="func" id="clear">C</button>
+            <button class="func" id="back">⌫</button>
+            <button class="func" id="percent">%</button>
+            <button class="opr">/</button>
+            <button class="box">7</button>
+            <button class="box">8</button>
+            <button class="box">9</button>
+            <button class="opr">*</button>
+            <button class="box">4</button>
+            <button class="box">5</button>
+            <button class="box">6</button>
+            <button class="opr">-</button>
+            <button class="box">1</button>
+            <button class="box">2</button>
+            <button class="box">3</button>
+            <button class="opr">+</button>
+            <button class="box">00</button>
+            <button class="box">0</button>
+            <button class="box">.</button>
+            <button class="box" id="equals">=</button>
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById('display');
+        const historyDiv = document.getElementById('history');
+        const buttons = document.querySelectorAll('.box, .opr, .func');
+        const equalsBtn = document.getElementById('equals');
+        const clearBtn = document.getElementById('clear');
+        const backBtn = document.getElementById('back');
+        const percentBtn = document.getElementById('percent');
+        let current = '';
+        let history = [];
+        let lastWasEqual = false;
+
+        function updateDisplay(val) {
+            display.textContent = val || '0';
+        }
+
+        function updateHistory() {
+            historyDiv.innerHTML = history.slice(-3).map(h => `<div>${h}</div>`).join('');
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const value = btn.textContent;
+
+                if (btn.classList.contains('func')) {
+                    if (value === 'C') {
+                        current = '';
+                        updateDisplay(current);
+                    } else if (value === '⌫') {
+                        current = current.slice(0, -1);
+                        updateDisplay(current);
+                    } else if (value === '%') {
+                        if (current && !/[+\-*/.]$/.test(current)) {
+                            try {
+                                current = (parseFloat(eval(current)) / 100).toString();
+                                updateDisplay(current);
+                                lastWasEqual = true;
+                            } catch {
+                                updateDisplay('Error');
+                                current = '';
+                            }
+                        }
+                    }
+                    return;
+                }
+
+                if (value === '=') {
+                    try {
+                        if (current && !/[+\-*/.]$/.test(current)) {
+                            let result = eval(current);
+                            history.push(`${current} = ${result}`);
+                            updateHistory();
+                            current = result.toString();
+                            updateDisplay(current);
+                            lastWasEqual = true;
+                        }
+                    } catch {
+                        updateDisplay('Error');
+                        current = '';
+                    }
+                } else if (['+', '-', '*', '/'].includes(value)) {
+                    if (current === '' && value !== '-') return;
+                    if (/[+\-*/.]$/.test(current)) {
+                        current = current.slice(0, -1) + value;
+                    } else {
+                        current += value;
+                    }
+                    updateDisplay(current);
+                    lastWasEqual = false;
+                } else {
+                    if (lastWasEqual) {
+                        current = '';
+                        lastWasEqual = false;
+                    }
+                    current += value;
+                    updateDisplay(current);
+                }
+            });
+        });
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '0' && e.key <= '9') {
+                if (lastWasEqual) {
+                    current = '';
+                    lastWasEqual = false;
+                }
+                current += e.key;
+                updateDisplay(current);
+            } else if (['+', '-', '*', '/'].includes(e.key)) {
+                if (current === '' && e.key !== '-') return;
+                if (/[+\-*/.]$/.test(current)) {
+                    current = current.slice(0, -1) + e.key;
+                } else {
+                    current += e.key;
+                }
+                updateDisplay(current);
+                lastWasEqual = false;
+            } else if (e.key === 'Enter' || e.key === '=') {
+                try {
+                    if (current && !/[+\-*/.]$/.test(current)) {
+                        let result = eval(current);
+                        history.push(`${current} = ${result}`);
+                        updateHistory();
+                        current = result.toString();
+                        updateDisplay(current);
+                        lastWasEqual = true;
+                    }
+                } catch {
+                    updateDisplay('Error');
+                    current = '';
+                }
+            } else if (e.key === 'Backspace') {
+                current = current.slice(0, -1);
+                updateDisplay(current);
+            } else if (e.key === '.') {
+                if (!current.endsWith('.')) {
+                    current += '.';
+                    updateDisplay(current);
+                }
+            } else if (e.key === '%') {
+                if (current && !/[+\-*/.]$/.test(current)) {
+                    try {
+                        current = (parseFloat(eval(current)) / 100).toString();
+                        updateDisplay(current);
+                        lastWasEqual = true;
+                    } catch {
+                        updateDisplay('Error');
+                        current = '';
+                    }
+                }
+            }
+        });
+
+        updateDisplay(current);
+        updateHistory();
+    </script>
+</body>
+</html>
