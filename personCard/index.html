@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Card</title>
+</head>
+
+<style>
+    body {
+        background-color: gray;
+    }
+
+    .input {
+        display: flex;
+        justify-content: center;
+    }
+
+    input {
+        width: 500px;
+        height: 60px;
+    }
+    .cards{
+        display: flex;
+        gap: 10px;
+    }
+    .card{
+
+        width: 270px;
+        height: 350px;
+        border: 1px solid white;
+        margin-top: 65px;
+    }
+    .img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+    }
+    .img img{
+        width:250px;
+        height: 250px;
+    }
+    .main-info{
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        font-size: 18px;
+    }
+    .info{
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: space-between;
+        
+        height: 26px;
+        
+    }
+    .fllow{
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: space-between;
+    }
+</style>
+
+<body>
+    <div class="input">
+        <input type="text" placeholder="Enter you github username" id="input">
+        <button id="add">Add my githubCard</button>
+    </div>
+    <div class="cards">
+        
+    </div>
+
+
+
+
+    <script>
+        let cards= document.querySelector('.cards')
+        const first = async () => {
+            let response = await fetch("https://api.github.com/users/sachinjaiswal111");
+            let data = await response.json();  // parse JSON
+            console.log(data);
+            let div=document.createElement('div');
+            div.innerHTML=` <div class="card">
+            <div class="img">
+                <img src="${data.avatar_url}" alt="">
+            </div>
+            <div class="main-info">
+                <div class="info">
+               <p>sachinjaiswal111</p>
+               <p>publicRepos: ${data.public_repos}</p>
+               
+            </div>
+            <div class="fllow">
+                
+                <p>followers:${data.followers}</p>
+                <p>follwoing:${data.following}</p>
+            </div>
+            </div>
+        </div>`
+           cards.append(div);
+        };
+        first();
+
+
+        let add = document.querySelector('#add');
+        let input= document.querySelector('#input')
+        async function random(name) {
+             let response = await fetch(`https://api.github.com/users/${name}`);
+            let data = await response.json();  // parse JSON
+            console.log(data);
+            let div=document.createElement('div');
+            div.innerHTML=` <div class="card">
+            <div class="img">
+                <img src="${data.avatar_url}" alt="">
+            </div>
+            <div class="main-info">
+                <div class="info">
+               <p>${data.login}</p>
+               <p>publicRepos: ${data.public_repos}</p>
+               
+            </div>
+            <div class="fllow">
+                
+                <p>followers:${data.followers}</p>
+                <p>follwoing:${data.following}</p>
+            </div>
+            </div>
+        </div>`
+           cards.append(div);
+        }
+
+        add.addEventListener('click',async()=>{
+            let name = input.value;
+            console.log(name)
+            random(name);
+        })
+
+    </script>
+
+</body>
+
+</html>
